@@ -41,4 +41,6 @@ public class StockQuoteAnalyzerTest {
     public void constructorShouldThrowExceptionWhenSymbolIsInvalid() throws Exception {
         analyzer = new StockQuoteAnalyzer("ZZZZZZZZZ", generatorMock, audioMock);
     }
+
+    //hi
 }
