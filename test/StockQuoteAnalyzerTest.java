@@ -115,7 +115,7 @@ public class StockQuoteAnalyzerTest {
     @Test
     public void playAppropriateAudioShouldPlaySadMusicWhenPercentChangeSinceCloseIsEqualToNegativeOne() throws Exception {
         StockQuoteInterface stockQuoteMock = mock(StockQuote.class);
-        when(stockQuoteMock.getChange()).thenReturn(-1.0);
+        when(stockQuoteMock.getChange()).thenReturn(-10.0);
         when(stockQuoteMock.getClose()).thenReturn(1000.0);
         when(generatorMock.getCurrentQuote()).thenReturn(stockQuoteMock);
         analyzer = new StockQuoteAnalyzer("F", generatorMock, audioMock);
@@ -147,7 +147,7 @@ public class StockQuoteAnalyzerTest {
         analyzer.refresh();
 
         //Assert
-        assertEquals(analyzer.getPercentChangeSinceClose(), -0.5);
+        assertEquals(analyzer.getPercentChangeSinceClose(), -0.05);
     }
 
     @Test (expectedExceptions = InvalidAnalysisState.class) //Assert
